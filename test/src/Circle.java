@@ -11,7 +11,7 @@ public class Circle {
             System.out.println("1. Хийх");
             System.out.println("2. Оройн элемэнт гаргах");
             System.out.println("3. Оройн элемэнт харах");
-            System.out.println("4. Хоосон эсхийг шалгах");
+            System.out.println("4. Хоосон эсэхийг шалгах");
             System.out.println("5. Хэмжээ шалгах");
             System.out.println("6. Оройн элемэнтийг давхардуулах");
             System.out.println("7. Хөрвүүлэх");
