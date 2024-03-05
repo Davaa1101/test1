@@ -2,8 +2,9 @@ package dataStructures;
 
 import java.util.EmptyStackException;
 
-public class ArrayStack<T> {
+public class ArrayStack<T, G> {
     private T[] stackArray;
+    private G[] stackArray1;
     private int top;
     private int capacity;
 
@@ -12,13 +13,14 @@ public class ArrayStack<T> {
         this.capacity = capacity;
         // Create an array of generic type T
         stackArray = (T[]) new Object[capacity];
+        stackArray1 = (G[]) new Object[capacity];
         top = -1;
     }
 
     // Function to push an element onto the stack
     public void push(T element) {
         if (isFull()) {
-            System.out.println("Stack is full! Cannot push element.");
+            System.out.println("Дүүрсэн");
             return;
         }
         stackArray[++top] = element;
@@ -82,7 +84,7 @@ public class ArrayStack<T> {
     // Function to print the elements of the stack
     public void printStack() {
         if (isEmpty()) {
-            System.out.println("Stack is empty!");
+            System.out.println("Хоосон");
             return;
         }
         System.out.print("Stack: ");
@@ -91,4 +93,58 @@ public class ArrayStack<T> {
         }
         System.out.println();
     }
+ // Function to push an element onto the additional stack
+    public void pushAdditional(G element) {
+        if (isAdditionalFull()) {
+            System.out.println("Дүүрсэн.");
+            return;
+        }
+        stackArray1[++top] = element;
+    }
+
+    // Function to pop an element from the additional stack
+    public G popAdditional() {
+        if (isAdditionalEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stackArray1[top--];
+    }
+
+    // Function to peek at the top element of the additional stack
+    public G peekAdditional() {
+        if (isAdditionalEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stackArray1[top];
+    }
+
+    // Function to check if the additional stack is empty
+    public boolean isAdditionalEmpty() {
+        return top == -1;
+    }
+
+    // Function to check if the additional stack is full
+    public boolean isAdditionalFull() {
+        return top == capacity - 1;
+    }
+
+    // Function to get the size of the additional stack
+    public int additionalStackSize() {
+        return top + 1;
+    }
+
+    // Function to print the elements of the additional stack
+    public void printAdditionalStack() {
+        if (isAdditionalEmpty()) {
+            System.out.println("Хоосон!");
+            return;
+        }
+        System.out.print("G "
+        		+ "+5t: ");
+        for (int i = 0; i <= top; i++) {
+            System.out.print(stackArray1[i] + " ");
+        }
+        System.out.println();
+    }
+
 }
